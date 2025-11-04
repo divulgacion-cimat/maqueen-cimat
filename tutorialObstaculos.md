@@ -30,7 +30,7 @@ Crea ahora una variable `||variables:distancia||` y coloca el bloque `||variable
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
-    distance = robot.obstacleDistance()
+    distancia = robot.obstacleDistance()
 })
 
 ```
@@ -41,7 +41,7 @@ Queremos que nuestro robot avance si la distancia a los obstáculos es suficient
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
-    distance = robot.obstacleDistance()
+    distancia = robot.obstacleDistance()
      if (true) {
             //
         } 
@@ -55,8 +55,8 @@ Ahora crea un bloque  `||logic:>||` y sustituye el **verdadero**. En la parte iz
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
-    distance = robot.obstacleDistance()
-     if (distance > 15) {
+    distancia = robot.obstacleDistance()
+     if (distancia > 15) {
             //
         }
 })
@@ -68,12 +68,13 @@ robot.onObstacleDistanceChanged(function () {
 Finalmente, para que se mueva el robot hacia adelante, coloca un bloque `||robot:robot motor tank||` dentro del condicional y asigna ambos valores a **30**. Ejecuta el programa y arrastra un obstáculo enfrente del robot. Observarás que el robot sigue hacia adelante aunque la distancia sea claramente menor a 15cm.
 
 ```blocks
-distance = robot.obstacleDistance()
-     if (distance > 15) {
+robot.onObstacleDistanceChanged(function () {
+    distancia = robot.obstacleDistance()
+     if (distancia > 15) {
         //highlight
             robot.motorTank(30, 30)
         }
-
+})
 ```
 
 
@@ -81,13 +82,16 @@ distance = robot.obstacleDistance()
 
 Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *sino* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. ¡Notarás que el robot ahora se detiene!
 ```blocks
-    distance = robot.obstacleDistance()
-     if (distance > 15) {
+robot.onObstacleDistanceChanged(function () {
+    distancia = robot.obstacleDistance()
+     if (distancia > 15) {
+        //highlight
             robot.motorTank(30, 30)
         } else {
         //highlight
             robot.motorTank(0, 0)
         }
+}) 
 
 ```
 
