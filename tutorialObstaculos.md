@@ -79,7 +79,7 @@ distance = robot.obstacleDistance()
 
 ## {Step 7}
 
-Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *sino* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. Notarás que el robot ¿se sigue moviendo?
+Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *sino* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. ¡Notarás que el robot ahora se detiene!
 ```blocks
     distance = robot.obstacleDistance()
      if (distance > 15) {
@@ -91,26 +91,9 @@ Esto es porque estamos asignando una velocidad a los motores para que avance, ¡
 
 ```
 
-
 ## {Step 8}
 
-Lo que sucede es que, aunque apagamos los motores, el robot aún tiene inercia por lo que se desliza. Para contrarrestarla, coloca otro bloque `` antes del anterior pero ahora con los valores **-30** para aplicar una fuerza en el sentido contrario. Notarás como ahora el robot para en seco.
-
-```blocks
-    distance = robot.obstacleDistance()
-     if (distance > 15) {
-            robot.motorTank(30, 30)
-        } else {
-            robot.motorTank(0, 0)
-            //highlight
-             robot.motorTank(-30, -30)
-        }
-
-```
-
-## {Step 9}
-
-¡Excelenete! Ahora nuestro robot se detiene en seco al detectar un obstáculo enfrente de él. ¿Cómo harías para que en su lugar diera una vuelta?
+¡Excelenete! Ahora nuestro robot se detiene al detectar un obstáculo enfrente de él. ¿Cómo harías para que en su lugar diera una vuelta para evitar el obstáculo?
 
 
 ```template
