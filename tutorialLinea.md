@@ -25,7 +25,7 @@ basic.forever(function () {
 
 ## {Step 3}
 
-Vamos a hacer que el robot avance si ambos sensores detectan la línea. Coloca un bloque `||logic:si...entonces||` y sustituye **verdadero** por un bloque `||logic:y||`. Ahora, de la categoría `||robot:Robot||` toma dos bloques `||robot:robot detect line||` y colócalos en ambos lados del bloque `||logic:y||`. Estos bloques se encargan de detectar la línea. Sin embargo, note que ambos dicen *left*, izquierda, por lo que cambia uno para que diga *right*, derecha.
+Vamos a hacer que el robot avance si ambos sensores detectan la línea. Coloca un bloque `||logic:si...entonces||` y sustituye **verdadero** por un bloque `||logic:y||`. Ahora, de la categoría `||robot:Robot||` toma dos bloques `||robot:robot detect line||` y colócalos en ambos lados del bloque `||logic:y||`. Estos bloques se encargan de indicar si el sensor detectó la línea. Selecciona en uno la opción *left*, izquierda, y en el otro *right*, derecha.
 ```blocks
 basic.forever(function () {
     if (robot.detectLine(RobotLineDetector.Left) && robot.detectLine(RobotLineDetector.Right)) {
