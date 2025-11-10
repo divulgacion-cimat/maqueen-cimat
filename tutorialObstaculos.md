@@ -51,7 +51,7 @@ robot.onObstacleDistanceChanged(function () {
 ## {Step 5}
 
 
-Ahora crea un bloque  `||logic:>||` y sustituye el **verdadero**. En la parte izquierda  coloca un bloque `||variables:distancia||` y cambia el **0** de la derecha por **15**.
+Ahora arrastra un bloque  `||logic:0 < 0||`, sustituye el **verdadero** y cambia el signo **<** por **>**. En la parte izquierda  coloca un bloque `||variables:distancia||` y cambia el **0** de la derecha por **15**.
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
@@ -80,7 +80,7 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 7}
 
-Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *sino* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. ¡Notarás que el robot ahora se detiene!
+Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *si no* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. ¡Notarás que el robot ahora se detiene!
 ```blocks
 robot.onObstacleDistanceChanged(function () {
     distancia = robot.obstacleDistance()
@@ -97,7 +97,7 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 8}
 
-¡Excelenete! Ahora nuestro robot se detiene al detectar un obstáculo enfrente de él. ¿Cómo harías para que en su lugar diera una vuelta para evitar el obstáculo?
+¡Excelente! Ahora nuestro robot se detiene al detectar un obstáculo enfrente de él. ¿Cómo harías para que en su lugar diera una vuelta para evitar el obstáculo?
 
 
 ```template

@@ -50,7 +50,7 @@ basic.forever(function () {
 
 ## {Step 5}
 
-Notemos que si la condición que colocamos es falsa, entonces *al menos uno* de los sensores no está detectando la línea. Aprovechemos esto. Haz click tres veces en el símbolo "**+**" para crear dos condiciones `||logic:sino  si ... entonces||` y sutituye el **falso** de uno de ellos por un bloque `||robot:robot detect line left||` y el del otro por `||robot:robot detect line right||` .
+Notemos que si la condición que colocamos es falsa, entonces *al menos uno* de los sensores no está detectando la línea. Aprovechemos esto. Haz click tres veces en el símbolo "**+**" para crear dos condiciones `||logic:si no,  si ... entonces||` y sutituye el **falso** de uno de ellos por un bloque `||robot:robot detect line left||` y el del otro por `||robot:robot detect line right||` .
 ```blocks
 basic.forever(function () {
     if (robot.detectLine(RobotLineDetector.Left) && robot.detectLine(RobotLineDetector.Right)) {
@@ -110,7 +110,7 @@ basic.forever(function () {
 
 ## {Step 8}
 
-Si lo ejectuamos, ¡el robot ya sigue la línea! Sin embargo, aún queda una rama *sino* al final. Notemos que si el programa llega hasta ese punto, significa que ninguno de los sensores está detectando la línea. En ese caso será mejor detener el robot. Coloca entonces un bloque `||robot:robot motor tank||` con ambos valores en **0** en la última rama.
+Si lo ejectuamos, ¡el robot ya sigue la línea! Sin embargo, aún queda una rama *si no* al final. Notemos que si el programa llega hasta ese punto, significa que ninguno de los sensores está detectando la línea. En ese caso será mejor detener el robot. Coloca entonces un bloque `||robot:robot motor tank||` con ambos valores en **0** en la última rama.
 ```blocks
 basic.forever(function () {
     if (robot.detectLine(RobotLineDetector.Left) && robot.detectLine(RobotLineDetector.Right)) {
@@ -129,7 +129,7 @@ basic.forever(function () {
 
 ## {Step 9}
 
-¡Excelenete! Ahora tienes un robot que puede seguir una línea de manera automática.
+¡Excelente! Ahora tienes un robot que puede seguir una línea de manera automática.
 
 
 ```template
