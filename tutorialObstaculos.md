@@ -2,18 +2,18 @@
 
 ## {Introduction @unplugged}
 
-En esta actividad aprenderás a utilizar el sensor de proximidad para detener al robot.
+En esta actividad aprenderás cómo utilizar el sensor de proximidad del robot para detectar obstáculos y detener su movimiento cuando sea necesario. ¡Vamos a hacerlo paso a paso!
 
 ## {Step 1}
 
-Siempre es necesario iniciar el robot cuando trabajemos con él. Para esto, en el bloque `||basic:al iniciar||` coloca un bloque `||robot:robot ... start||` y selecciona el *dfrobot maqueen*.
+Siempre que trabajemos con el robot, debemos asegurarnos de inicializarlo. Para ello, en el bloque `||basic:al iniciar||` coloca un bloque `||robot:robot ... start||` y selecciona el *dfrobot maqueen*.
 ```blocks
 robot.dfRobotMaqueen.start()
 ```
 
 ## {Step 2}
 
-Ahora necesitamos una variable para guardar la mínima distancia del robot a los obstáculos. Esta deberá actualizarse cada vez que detecte un nuevo valor por lo que usaremos un nuevo bloque: `||robot:robot on obstacle distance changed||`, que en español significa *Robot al cambiar la distancia al obstáculo*. Colócalo dentro del espacio de trabajo.
+Ahora necesitamos una variable que almacene la distancia mínima entre el robot y los obstáculos. Cada vez que el robot detecte un cambio en la distancia, la variable debe actualizarse. Para esto utilizaremos el nuevo bloque: `||robot:robot on obstacle distance changed||`, que en español significa *Robot al cambiar la distancia al obstáculo*. Colócalo dentro del espacio de trabajo.
 
 
 ```blocks
@@ -26,7 +26,7 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 3}
 
-Crea ahora una variable `||variables:distancia||` y coloca el bloque `||variables:fijar distancia a||` dentro del bloque que acabas de colocar. Toma ahora un bloque `||robot:robot obstacle distance||` y asígnaselo como valor a la variable en lugar del **0**.
+Crea una variable `||variables:distancia||` y coloca el bloque `||variables:fijar distancia a||` dentro del bloque que colocaste en el paso anterior. Toma ahora un bloque `||robot:robot obstacle distance||` y asígnaselo como valor a la variable en lugar del **0**.
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
@@ -37,7 +37,7 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 4}
 
-Queremos que nuestro robot avance si la distancia a los obstáculos es suficientemente grande. Para esto vamos a usar un condicional. Toma un condicional `||logic:si ... entonces||` y colócalo debajo de lo anterior.
+Queremos que el robot avance si la distancia a los obstáculos es suficientemente grande. Para ello, usaremos un condicional. Arrastra un bloque `||logic:si ... entonces||` y colócalo debajo del bloque que acabamos de crear.
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
@@ -50,8 +50,8 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 5}
 
+Ahora, en el condicional vamos a verificar si la distancia es mayor que 15 cm. Para hacerlo, arrastra un bloque  `||logic:0 < 0||`, sustituye el **verdadero** con él y cambia el signo **<** por **>**. En el lado izquierdo reemplaza el valor **0** por un bloque `||variables:distancia||` y en el lado derecho cambia el valor a **15**.
 
-Ahora arrastra un bloque  `||logic:0 < 0||`, sustituye el **verdadero** y cambia el signo **<** por **>**. En la parte izquierda  coloca un bloque `||variables:distancia||` y cambia el **0** de la derecha por **15**.
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
@@ -65,7 +65,7 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 6}
 
-Finalmente, para que se mueva el robot hacia adelante, coloca un bloque `||robot:robot motor tank||` dentro del condicional y asigna ambos valores a **30**. Ejecuta el programa y arrastra un obstáculo enfrente del robot. Observarás que el robot sigue hacia adelante aunque la distancia sea claramente menor a 15cm.
+Dentro del condicional, agrega un bloque `||robot:robot motor tank||` y asigna un valor de **30** a ambos motores para hacer que el robot avance. Ejecuta el programa y arrastra un obstáculo enfrente del robot. Observarás que el robot sigue hacia adelante aunque la distancia sea claramente menor a 15cm.
 
 ```blocks
 robot.onObstacleDistanceChanged(function () {
@@ -80,7 +80,8 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 7}
 
-Esto es porque estamos asignando una velocidad a los motores para que avance, ¡pero nunca se la quitamos! Da click en el símbolo de **+** del condicional para agregar una rama *si no* y dentro coloca otro bloque `||robot:robot motor tank||` pero deja los valores en 0 para apagar los motores. ¡Notarás que el robot ahora se detiene!
+Esto ocurre porque le estamos asignando velocidad a los motores, pero en ningún momento los detenemos. Para solucionar esto, da click en el símbolo de **+** del condicional para agregar una rama *si no*. Dentro de esta rama, coloca otro bloque `||robot:robot motor tank||`, pero esta vez deja los valores en **0** para detener los motores. ¡Notarás que el robot ahora se detiene!
+
 ```blocks
 robot.onObstacleDistanceChanged(function () {
     distancia = robot.obstacleDistance()
@@ -97,7 +98,9 @@ robot.onObstacleDistanceChanged(function () {
 
 ## {Step 8}
 
-¡Excelente! Ahora nuestro robot se detiene al detectar un obstáculo enfrente de él. ¿Cómo harías para que en su lugar diera una vuelta para evitar el obstáculo?
+¡Listo! Ahora tu robot se detendrá al detectar un obstáculo frente a él.
+
+**Desafío:** ¿Cómo modificarías este código para que el robot, en lugar de detenerse, dé una vuelta para evitar el obstáculo?
 
 
 ```template
